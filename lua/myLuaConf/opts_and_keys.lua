@@ -65,25 +65,25 @@ vim.o.termguicolors = true
 -- [[ Disable auto comment on enter ]]
 -- See :help formatoptions
 vim.api.nvim_create_autocmd("FileType", {
-  desc = "remove formatoptions",
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
+        desc = "remove formatoptions",
+        callback = function()
+                vim.opt.formatoptions:remove({ "c", "r", "o" })
+        end,
 })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+        callback = function()
+                vim.highlight.on_yank()
+        end,
+        group = highlight_group,
+        pattern = '*',
 })
 
-vim.g.netrw_liststyle=0
-vim.g.netrw_banner=0
+vim.g.netrw_liststyle = 0
+vim.g.netrw_banner = 0
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -117,7 +117,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 
--- kickstart.nvim starts you with this. 
+-- kickstart.nvim starts you with this.
 -- But it constantly clobbers your system clipboard whenever you delete anything.
 
 -- Sync clipboard between OS and Neovim.
@@ -126,14 +126,35 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- vim.o.clipboard = 'unnamedplus'
 
 -- You should instead use these keybindings so that they are still easy to use, but dont conflict
-vim.keymap.set({"v", "x", "n"}, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Yank to clipboard' })
-vim.keymap.set({"n", "v", "x"}, '<leader>Y', '"+yy', { noremap = true, silent = true, desc = 'Yank line to clipboard' })
-vim.keymap.set({"n", "v", "x"}, '<C-a>', 'gg0vG$', { noremap = true, silent = true, desc = 'Select all' })
-vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p', { noremap = true, silent = true, desc = 'Paste from clipboard' })
-vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', { noremap = true, silent = true, desc = 'Paste from clipboard from within insert mode' })
-vim.keymap.set("x", "<leader>P", '"_dP', { noremap = true, silent = true, desc = 'Paste over selection without erasing unnamed register' })
+vim.keymap.set({ "v", "x", "n" }, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Yank to clipboard' })
+vim.keymap.set({ "n", "v", "x" }, '<leader>Y', '"+yy', { noremap = true, silent = true, desc = 'Yank line to clipboard' })
+vim.keymap.set({ "n", "v", "x" }, '<C-a>', 'gg0vG$', { noremap = true, silent = true, desc = 'Select all' })
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>P', '"+p', { noremap = true, silent = true, desc = 'Paste from clipboard' })
+vim.keymap.set("x", "<leader>p", '"_dP',
+        { noremap = true, silent = true, desc = 'Paste over selection without erasing unnamed register' })
+vim.keymap.set('i', '<C-p>', '<C-r><C-p>+',
+        { noremap = true, silent = true, desc = 'Paste from clipboard from within insert mode' })
 
--- Customs
+-- Customs (thanks Prime)
 -- go back to explorer (oil)
-vim.keymap.set("n","<leader>pv",vim.cmd.Oil)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil,{silent= true ,noremap = true ,desc = "Open Oil Explorer"})
 
+-- fix "j" in place
+vim.keymap.set("n", "J", "mzJ`z",{silent= true ,noremap = true ,desc = "fix cursor in place when appending with 'J'"})
+
+-- delete to void
+vim.keymap.set("n", "<leader>d", "\"_d",{silent= true ,noremap = true ,desc = "delete to void"})
+vim.keymap.set("v", "<leader>d", "\"_d",{silent= true ,noremap = true ,desc = "delete to void"})
+
+-- disable macro recording
+-- vim.keymap.set("n","q","<nop>",{silent= true ,noremap = true ,desc = "disable macro recording"})
+
+-- disable Ex mode (never agian)
+vim.keymap.set("n", "Q", "<nop>",{silent= true ,noremap = true ,desc = "disable Ex Mode ('Q') "})
+
+-- ThePrimeagen tmux-sessionizer
+-- https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux new tmux-sessionizer<CR>",{silent= true ,noremap = true ,desc = "use tmux-sessionizer to switch projects"})
+
+-- rename word below cursor
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],{silent= true ,noremap = true ,desc = "rename token below cursor"})
