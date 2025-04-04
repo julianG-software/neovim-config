@@ -118,6 +118,12 @@
         debug = with pkgs; {
           go = [ delve ];
         };
+
+        
+        webDev = with pkgs; [
+                typescript-language-server
+        ];
+        
         go = with pkgs; [
           gopls
           gotools
@@ -364,6 +370,7 @@
           general = true;
           lint = true;
           format = true;
+          webDev = true;
           neonixdev = true;
           test = {
             subtest1 = true;

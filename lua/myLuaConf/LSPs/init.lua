@@ -76,6 +76,12 @@ require('lze').load {
     -- also these are regular specs and you can use before and after and all the other normal fields
   },
   {
+          "ts_ls",
+          enabled = true,
+          for_cat = "webDev",
+          lsp = {},
+  },
+  {
     "gopls",
     for_cat = "go",
     -- if you don't provide the filetypes it asks lspconfig for them
