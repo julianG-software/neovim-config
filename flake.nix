@@ -122,6 +122,7 @@
         
         webDev = with pkgs; [
                 typescript-language-server
+                eslint
         ];
         
         go = with pkgs; [
