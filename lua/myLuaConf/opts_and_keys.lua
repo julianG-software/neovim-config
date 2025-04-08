@@ -34,9 +34,9 @@ vim.opt.cpoptions:append('I')
 vim.o.expandtab = true
 -- vim.o.smartindent = true
 -- vim.o.autoindent = true
--- vim.o.tabstop = 4
 -- vim.o.softtabstop = 4
--- vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 -- stops line wrapping from being confusing
 vim.o.breakindent = true
@@ -137,24 +137,25 @@ vim.keymap.set('i', '<C-p>', '<C-r><C-p>+',
 
 -- Customs (thanks Prime)
 -- go back to explorer (oil)
-vim.keymap.set("n", "<leader>pv", vim.cmd.Oil,{silent= true ,noremap = true ,desc = "Open Oil Explorer"})
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil, { silent = true, noremap = true, desc = "Open Oil Explorer" })
 
 -- fix "j" in place
-vim.keymap.set("n", "J", "mzJ`z",{silent= true ,noremap = true ,desc = "fix cursor in place when appending with 'J'"})
+vim.keymap.set("n", "J", "mzJ`z", { silent = true, noremap = true, desc = "fix cursor in place when appending with 'J'" })
 
 -- delete to void
-vim.keymap.set("n", "<leader>d", "\"_d",{silent= true ,noremap = true ,desc = "delete to void"})
-vim.keymap.set("v", "<leader>d", "\"_d",{silent= true ,noremap = true ,desc = "delete to void"})
+vim.keymap.set("n", "<leader>d", "\"_d", { silent = true, noremap = true, desc = "delete to void" })
+vim.keymap.set("v", "<leader>d", "\"_d", { silent = true, noremap = true, desc = "delete to void" })
 
 -- disable macro recording
 -- vim.keymap.set("n","q","<nop>",{silent= true ,noremap = true ,desc = "disable macro recording"})
 
 -- disable Ex mode (never agian)
-vim.keymap.set("n", "Q", "<nop>",{silent= true ,noremap = true ,desc = "disable Ex Mode ('Q') "})
+vim.keymap.set("n", "Q", "<nop>", { silent = true, noremap = true, desc = "disable Ex Mode ('Q') " })
 
 -- ThePrimeagen tmux-sessionizer
 -- https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux new tmux-sessionizer<CR>",{silent= true ,noremap = true ,desc = "use tmux-sessionizer to switch projects"})
 
 -- rename word below cursor
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],{silent= true ,noremap = true ,desc = "rename token below cursor"})
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+        { silent = true, noremap = true, desc = "rename token below cursor" })
