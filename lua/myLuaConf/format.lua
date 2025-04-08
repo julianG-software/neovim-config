@@ -6,7 +6,7 @@ require('lze').load {
                 -- event = "",
                 -- ft = "",
                 keys = {
-                        { "<leader>FF", desc = "[F]ormat [F]ile" },
+                        { "<leader>ff", desc = "[F]ormat [F]ile" },
                 },
                 -- colorscheme = "",
                 after = function(plugin)
@@ -24,8 +24,11 @@ require('lze').load {
                                         -- Use a sub-list to run only the first available formatter
                                         -- javascript = { { "prettierd", "prettier" } },
                                         javascript = { "prettierd" },
+                                        typescript = { "prettierd" },
                                 },
                         })
+
+
 
                         vim.keymap.set({ "n", "v" }, "<leader>ff", function()
                                 conform.format({
@@ -34,6 +37,19 @@ require('lze').load {
                                         timeout_ms = 1000,
                                 })
                         end, { desc = "[F]ormat [F]ile" })
+
+
+                        -- Autocand dont work rn
+                        -- vim.api.nvim_create_autocmd("BufWritePre", {
+                        --        callback = function(args)
+                        --                require("conform").format({
+                        --                        lsp_fallback = true,
+                        --                        async = false,
+                        --                        timeout_ms = 1000,
+                        --                })
+                        --        end
+                        --})
                 end,
         },
+
 }
