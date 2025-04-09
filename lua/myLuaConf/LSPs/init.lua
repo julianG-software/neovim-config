@@ -82,6 +82,12 @@ require('lze').load {
           lsp = {},
   },
   {
+          "tailwindcss-language-server",
+          enabled = true,
+          for_cat = "webDev",
+          lsp = {},
+  },
+  {
     "gopls",
     for_cat = "go",
     -- if you don't provide the filetypes it asks lspconfig for them
