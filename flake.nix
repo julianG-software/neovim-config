@@ -129,7 +129,6 @@
             # but you can choose which ones you want
             # per nvim package you export
             debug = with pkgs; {
-              go = [ delve ];
             };
 
             webDev = with pkgs; [
@@ -140,12 +139,6 @@
               vimPlugins.tailwindcss-colors-nvim
             ];
 
-            go = with pkgs; [
-              gopls
-              gotools
-              go-tools
-              gccgo
-            ];
             # and easily check if they are included in lua
             format = with pkgs; [
             ];
@@ -209,7 +202,6 @@
                 nvim-dap-ui
                 nvim-dap-virtual-text
               ];
-              go = [ nvim-dap-go ];
             };
             lint = with pkgs.vimPlugins; [
               nvim-lint
@@ -317,13 +309,6 @@
           # lists of the functions you would have passed to
           # python.withPackages or lua.withPackages
 
-          # get the path to this python environment
-          # in your lua config via
-          # vim.g.python3_host_prog
-          # or run from nvim terminal via :!<packagename>-python3
-          extraPython3Packages = {
-            test = (_: [ ]);
-          };
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
             general = [ (_: [ ]) ];
