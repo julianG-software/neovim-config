@@ -82,7 +82,7 @@ require('lze').load {
           lsp = {},
   },
   {
-          "tailwindcss-language-server",
+          "tailwindcss",
           enabled = true,
           for_cat = "webDev",
           lsp = {},
