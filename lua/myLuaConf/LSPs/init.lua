@@ -88,6 +88,12 @@ require('lze').load {
           lsp = {},
   },
   {
+          "emmet_language_server",
+          enabled = true,
+          for_cat = "webDev",
+          lsp = {},
+  },
+  {
     "gopls",
     for_cat = "go",
     -- if you don't provide the filetypes it asks lspconfig for them

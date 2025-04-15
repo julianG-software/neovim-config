@@ -133,6 +133,7 @@
 
             webDev = with pkgs; [
               typescript-language-server
+              emmet-language-server
               eslint
               prettierd
               tailwindcss-language-server
