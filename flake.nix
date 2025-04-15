@@ -170,6 +170,7 @@
               ];
               custom = [
                 nvim-ts-autotag
+                nvim-autopairs
               ];
             };
             # You can retreive information from the
