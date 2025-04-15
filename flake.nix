@@ -137,7 +137,6 @@
               prettierd
               tailwindcss-language-server
               vimPlugins.tailwindcss-colors-nvim
-              vimPlugins.nvim-ts-autotag
             ];
 
             # and easily check if they are included in lua
@@ -168,6 +167,9 @@
               extra = [
                 oil-nvim
                 nvim-web-devicons
+              ];
+              custom = [
+                nvim-ts-autotag
               ];
             };
             # You can retreive information from the
