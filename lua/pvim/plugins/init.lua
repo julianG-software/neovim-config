@@ -64,9 +64,9 @@ if nixCats('general.extra') then
 end
 
 require('lze').load {
-    { import = "myLuaConf.plugins.telescope", },
-    { import = "myLuaConf.plugins.treesitter", },
-    { import = "myLuaConf.plugins.completion", },
+    { import = "pvim.plugins.telescope", },
+    { import = "pvim.plugins.treesitter", },
+    { import = "pvim.plugins.completion", },
     {
         "markdown-preview.nvim",
         -- NOTE: for_cat is a custom handler that just sets enabled value for us,

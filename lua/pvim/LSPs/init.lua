@@ -15,8 +15,8 @@ require('lze').load {
     lsp = function(plugin)
       -- in this case, just extend some default arguments with the ones provided in the lsp table
       require('lspconfig')[plugin.name].setup(vim.tbl_extend("force",{
-        capabilities = require('myLuaConf.LSPs.caps-on_attach').get_capabilities(plugin.name),
-        on_attach = require('myLuaConf.LSPs.caps-on_attach').on_attach,
+        capabilities = require('pvim.LSPs.caps-on_attach').get_capabilities(plugin.name),
+        on_attach = require('pvim.LSPs.caps-on_attach').on_attach,
       }, plugin.lsp or {}))
     end,
   },
