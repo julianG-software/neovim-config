@@ -116,6 +116,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Format file — conform overrides this on presets where it is loaded
+vim.keymap.set({ 'n', 'v' }, '<leader>ff', vim.lsp.buf.format, { desc = '[F]ormat [F]ile' })
+
 
 -- kickstart.nvim starts you with this.
 -- But it constantly clobbers your system clipboard whenever you delete anything.

@@ -15,8 +15,8 @@ require('lze').load {
     lsp = function(plugin)
       -- in this case, just extend some default arguments with the ones provided in the lsp table
       require('lspconfig')[plugin.name].setup(vim.tbl_extend("force",{
-        capabilities = require('myLuaConf.LSPs.caps-on_attach').get_capabilities(plugin.name),
-        on_attach = require('myLuaConf.LSPs.caps-on_attach').on_attach,
+        capabilities = require('pvim.LSPs.caps-on_attach').get_capabilities(plugin.name),
+        on_attach = require('pvim.LSPs.caps-on_attach').on_attach,
       }, plugin.lsp or {}))
     end,
   },
@@ -92,12 +92,6 @@ require('lze').load {
           enabled = true,
           for_cat = "webDev",
           lsp = {},
-  },
-  {
-    "gopls",
-    for_cat = "go",
-    -- if you don't provide the filetypes it asks lspconfig for them
-    lsp = {},
   },
   {
     "rnix",

@@ -14,17 +14,20 @@ require('lze').load {
 
                         conform.setup({
                                 formatters_by_ft = {
-                                        -- NOTE: download some formatters in lspsAndRuntimeDeps
-                                        -- and configure them here
-                                        -- lua = { "stylua" },
-                                        -- go = { "gofmt", "golint" },
-                                        -- templ = { "templ" },
-                                        -- Conform will run multiple formatters sequentially
-                                        -- python = { "isort", "black" },
-                                        -- Use a sub-list to run only the first available formatter
-                                        -- javascript = { { "prettierd", "prettier" } },
+                                        lua        = { "stylua" },
+                                        nix        = { "alejandra" },
+                                        sh         = { "shfmt" },
+                                        bash       = { "shfmt" },
                                         javascript = { "prettierd" },
                                         typescript = { "prettierd" },
+                                        javascriptreact = { "prettierd" },
+                                        typescriptreact = { "prettierd" },
+                                        css        = { "prettierd" },
+                                        html       = { "prettierd" },
+                                        json       = { "prettierd" },
+                                        yaml       = { "prettierd" },
+                                toml       = { "taplo" },
+                                        markdown   = { "prettierd" },
                                 },
                         })
 

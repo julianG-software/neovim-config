@@ -9,11 +9,13 @@ require('lze').load {
                 -- colorscheme = "",
                 after = function(plugin)
                         require('lint').linters_by_ft = {
-                                -- NOTE: download some linters in lspsAndRuntimeDeps
-                                -- and configure them here
-                                -- markdown = {'vale',},
-                                javascript = { 'eslint' },
-                                typescript = { 'eslint' },
+                                javascript      = { 'eslint' },
+                                typescript      = { 'eslint' },
+                                sh              = { 'shellcheck' },
+                                bash            = { 'shellcheck' },
+                                nix             = { 'statix' },
+                                yaml            = { 'yamllint' },
+                                markdown        = { 'markdownlint-cli2' },
                         }
 
                         vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
