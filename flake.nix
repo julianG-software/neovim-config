@@ -43,7 +43,7 @@
               pkgs.vimPlugins.tailwindcss-colors-nvim
             ];
             lint   = with pkgs; [ shellcheck ];
-            format = with pkgs; [ ];
+            format = with pkgs; [ alejandra stylua shfmt taplo ];
           };
 
           startupPlugins = {
