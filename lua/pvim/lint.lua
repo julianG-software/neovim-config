@@ -13,6 +13,9 @@ require('lze').load {
                                 typescript      = { 'eslint' },
                                 sh              = { 'shellcheck' },
                                 bash            = { 'shellcheck' },
+                                nix             = { 'statix' },
+                                yaml            = { 'yamllint' },
+                                markdown        = { 'markdownlint-cli2' },
                         }
 
                         vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {

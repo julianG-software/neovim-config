@@ -3,7 +3,11 @@
 let
   greeting = name: "Hello, ${name}!";
 
+  # statix: use pkgs.lib instead of importing lib separately
   numbers = builtins.genList (x: x * 2) 5;
+
+  # deadnix: unused binding
+  unusedVar = "this is never used";
 
   mySet = {
     foo = "bar";
@@ -12,6 +16,9 @@ let
       enabled = true;
     };
   };
+
+  # statix: bool comparison anti-pattern (use value directly)
+  isEnabled = if mySet.nested.enabled == true then true else false;
 
   conditionalPkg = if pkgs.stdenv.isLinux then pkgs.hello else pkgs.cowsay;
 

@@ -42,7 +42,7 @@
               tailwindcss-language-server
               pkgs.vimPlugins.tailwindcss-colors-nvim
             ];
-            lint   = with pkgs; [ shellcheck ];
+            lint   = with pkgs; [ shellcheck statix deadnix yamllint markdownlint-cli2 ];
             format = with pkgs; [ alejandra stylua shfmt taplo ];
           };
 
