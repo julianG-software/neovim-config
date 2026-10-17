@@ -94,12 +94,6 @@ require('lze').load {
           lsp = {},
   },
   {
-    "gopls",
-    for_cat = "go",
-    -- if you don't provide the filetypes it asks lspconfig for them
-    lsp = {},
-  },
-  {
     "rnix",
     -- mason doesn't have nixd
     enabled = not catUtils.isNixCats,

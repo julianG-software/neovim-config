@@ -32,6 +32,7 @@
 
           lspsAndRuntimeDeps = {
             general   = with pkgs; [ universal-ctags ripgrep fd ];
+            nix       = with pkgs; [ nixd ];
             neonixdev = with pkgs; { inherit nix-doc lua-language-server nixd; };
             webDev    = with pkgs; [
               typescript-language-server
@@ -41,7 +42,7 @@
               tailwindcss-language-server
               pkgs.vimPlugins.tailwindcss-colors-nvim
             ];
-            lint   = with pkgs; [ ];
+            lint   = with pkgs; [ shellcheck ];
             format = with pkgs; [ ];
           };
 
@@ -106,11 +107,10 @@
 
       # ── presets ──────────────────────────────────────────────────────────
       #
-      # basic    — core editor, no LSPs
-      # config   — basic + nix/lua dev tools (nixd, lua_ls, lazydev)
-      # coding   — config + web dev, debug, lint, format
-      # markdown — basic + markdown preview
-      # full     — everything
+      # basic  — core editor + nixd + markdown preview
+      # config — basic + lua/nix dev tools (lua_ls, lazydev, lint, format)
+      # coding — config + web dev, debug
+      # full   — everything
 
       mkSettings = aliases: {
         wrapRc        = true;
@@ -124,6 +124,8 @@
           settings   = mkSettings [ "vi" ];
           categories = {
             general     = true;
+            nix         = true;
+            markdown    = true;
             themer      = true;
             colorscheme = "catppuccin-frappe";
           };
@@ -137,6 +139,7 @@
             neonixdev   = true;
             lint        = true;
             format      = true;
+            markdown    = true;
             themer      = true;
             colorscheme = "catppuccin-frappe";
           };
@@ -152,21 +155,11 @@
             lint        = true;
             format      = true;
             debug       = true;
-            themer      = true;
-            colorscheme = "catppuccin-frappe";
-          };
-          extra.nixdExtras.nixpkgs = ''import ${pkgs.path} {}'';
-        };
-
-        markdown = { pkgs, ... }: {
-          settings   = mkSettings [ ];
-          categories = {
-            general     = true;
             markdown    = true;
             themer      = true;
             colorscheme = "catppuccin-frappe";
           };
-          extra = { };
+          extra.nixdExtras.nixpkgs = ''import ${pkgs.path} {}'';
         };
 
         full = { pkgs, ... }: {
