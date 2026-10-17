@@ -31,7 +31,7 @@
         {
 
           lspsAndRuntimeDeps = {
-            general   = with pkgs; [ universal-ctags ripgrep fd ];
+            general   = with pkgs; [ universal-ctags ripgrep fd wl-clipboard xclip ];
             nix       = with pkgs; [ nixd ];
             neonixdev = with pkgs; { inherit nix-doc lua-language-server nixd; };
             webDev    = with pkgs; [
